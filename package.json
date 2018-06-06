@@ -5,6 +5,9 @@
   "author": "Roy Shmeuli <roysh9@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",
