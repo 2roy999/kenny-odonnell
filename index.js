@@ -1,13 +1,13 @@
 'use strict'
 
-const { DateTime } = require('luxon')
+const express = require('express')
 
 const { Gsheet } = require('./lib/data/gsheet')
 const { KeyValueStore } = require('./lib/data/key-value')
 const { DutiesManager } = require('./lib/data/duties')
 const { UserManager } = require('./lib/data/users')
 const { TelegramBot } = require('./lib/data/telegram')
-const { remindDuty } = require('./lib/reminders/duties')
+const { routerFactory } = require('./lib/router')
 
 const gsheet = new Gsheet({
   credentials: process.env.GOOGLE_CREDENTIALS,
@@ -43,6 +43,15 @@ const dependencies = {
   telegramBot
 }
 
+const router = routerFactory(dependencies)
+
 gsheet.open()
-  .then(() => remindDuty(DateTime.local(2018, 7, 7), dependencies))
-  .catch(err => console.error(err))
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
+
+const app = express()
+
+app.use(router)
+app.listen(process.env.PORT)
