@@ -19,7 +19,7 @@ const gsheet = new Gsheet({
 const keyValueStore = new KeyValueStore({
   gsheet,
   keyValueSheet: process.env.DATASTORE_KEY_VALUE_SHEET,
-  environment: process.env.ENVIRONMENT
+  environment: process.env.NODE_ENV
 })
 
 const userManager = new UserManager({
