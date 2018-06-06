@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express')
+const morgan = require('morgan')
 
 const { Gsheet } = require('./lib/data/gsheet')
 const { KeyValueStore } = require('./lib/data/key-value')
@@ -53,5 +54,6 @@ gsheet.open()
 
 const app = express()
 
+app.use(morgan(process.env.MORGAN_FORMAT))
 app.use(router)
 app.listen(process.env.PORT)
