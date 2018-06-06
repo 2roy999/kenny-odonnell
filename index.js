@@ -44,5 +44,5 @@ const dependencies = {
 }
 
 gsheet.open()
-  .then(() => remindDuty(DateTime.local(2018, 6, 7), dependencies))
+  .then(() => remindDuty(DateTime.local(2018, 7, 7), dependencies))
   .catch(err => console.error(err))
