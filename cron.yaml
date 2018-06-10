@@ -1,5 +1,0 @@
-cron:
- - description: "Remind the duty of the roommate"
-   url: /remind/duty/today
-   schedule: every day 19:00
-   timezone: Asia/Jerusalem
