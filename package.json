@@ -7,7 +7,7 @@
   "private": true,
   "bin": "bin.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "cli": "./bin.js"
   },
   "dependencies": {
